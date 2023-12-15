@@ -1,0 +1,31 @@
+{
+  "name": "mern-wp-lms-server",
+  "version": "1.0.0",
+  "description": "Learning Management System using WordPress & MERN Stack.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajeetkumarrauniyar/MERN-WP-LMS.git"
+  },
+  "keywords": [
+    "Wordpress",
+    "MERN",
+    "LMS",
+    "Community"
+  ],
+  "author": "Ajeet Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajeetkumarrauniyar/MERN-WP-LMS/issues"
+  },
+  "homepage": "https://github.com/ajeetkumarrauniyar/MERN-WP-LMS#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "node": "^21.2.0"
+  }
+}

@@ -1,0 +1,16 @@
+# Color Mode and Theme Manager (theme.js)
+
+This React utility provides a context for managing color mode and theme in your application. It includes color tokens based on the selected mode (dark or light) and MUI theme settings. Additionally, it offers a color mode context and a hook for easily toggling between light and dark modes.
+
+## Installation
+
+Install the required packages using npm:
+
+```bash
+npm install @mui/material
+
+# Color-Enabled React App (App.jsx)
+
+Integrate color mode and theme management into your React application with this utility. 
+
+

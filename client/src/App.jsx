@@ -3,7 +3,7 @@ import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./pages/global/Topbar";
-import Sidebar from "./pages/global/Sidebar";
+import SidebarComponent from "./pages/global/Sidebar";
 import Dashboard from "./pages/dashboard";
 // import Team from "./pages/team";
 // import Invoices from "./pages/invoices";
@@ -27,7 +27,7 @@ const App = () => {
         {/* Apply global baseline CSS styles */}
         <CssBaseline />
         <div className="app">
-          <Sidebar />
+          <SidebarComponent />
           <main className="content">
             <Topbar />
             <Routes>

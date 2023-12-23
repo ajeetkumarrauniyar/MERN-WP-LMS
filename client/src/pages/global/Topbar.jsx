@@ -11,6 +11,7 @@ import {
   NotificationsOutlined,
   SettingsOutlined,
   PersonOutlineOutlined,
+  ShoppingCartOutlined,
 } from "@mui/icons-material";
 
 const Topbar = () => {
@@ -50,7 +51,7 @@ const Topbar = () => {
           )}
         </IconButton>
 
-        {/* Messages Icon */}
+        {/* Messages icon */}
         <IconButton>
           <MessageOutlined />
         </IconButton>
@@ -58,6 +59,11 @@ const Topbar = () => {
         {/* Notification icon */}
         <IconButton>
           <NotificationsOutlined />
+        </IconButton>
+
+        {/* Cart icon */}
+        <IconButton>
+          <ShoppingCartOutlined />
         </IconButton>
 
         {/* Settings icon */}

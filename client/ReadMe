@@ -22,3 +22,14 @@ Incorporate this customizable topbar component into your React application, desi
 # Sidebar Component
 
 Integrate this customizable sidebar component into your React application, designed to work seamlessly with Material-UI and external libraries. The sidebar provides navigation options with icons, and it supports collapsing and expanding for a user-friendly experience.
+
+# Header Component
+
+Integrate this simple header component into your React application, designed to work seamlessly with Material-UI and the color theme from the provided theme file. The header displays a title with customizable styling.
+
+
+# Dashboard Component
+
+Integrate this dashboard component into your React application, leveraging components from Material-UI and external libraries. The dashboard includes a customizable header for presenting key information.
+
+

@@ -3,8 +3,6 @@ import { Box, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import InputBase from "@mui/material/InputBase";
-
-// Import Material-UI icons for various functionalities
 import {
   SearchOutlined,
   LightModeOutlined,
@@ -76,5 +74,4 @@ const Topbar = () => {
   );
 };
 
-// Export the Topbar component as the default export
 export default Topbar;

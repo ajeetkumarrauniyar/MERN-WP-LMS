@@ -1,5 +1,5 @@
+// Import necessary components and functions from React, Material-UI, and external libraries
 import { useState } from "react";
-import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
@@ -16,219 +16,124 @@ import {
   TimelineOutlined,
   MenuOutlined,
 } from "@mui/icons-material";
+import {
+  Sidebar,
+  Menu,
+  MenuItem,
+  menuClasses,
+  sidebarClasses,
+} from "react-pro-sidebar";
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  return (
-    <MenuItem
-      active={selected === title}
-      style={{
-        color: colors.grey[100],
-      }}
-      onClick={() => setSelected(title)}
-      icon={icon}
-    >
-      <>
-        <Typography>{title}</Typography>
-        <Link to={to} />
-      </>
-    </MenuItem>
-  );
-};
-
-const SidebarComponent = () => {
+const SidebarComponent = ({ title, to, selected, setSelected }) => {
   // Access the current theme and color mode using Material-UI hooks
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [selected, setSelected] = useState("Dashboard");
 
-  return (
+  // State to manage the collapse/expand behavior of the sidebar
+  const [collapsed, setCollapsed] = useState(false);
+
+  // Function to toggle the collapsed state of the sidebar
+  const handleToggleCollapse = () => {
+    setCollapsed(!collapsed);
+  };
+
+  // Function to render the logo and menu icon section
+  const renderLogoAndMenuIcon = () => (
     <Box
+      display="flex"
+      justifyContent="space-evenly"
+      alignItems="center"
+      ml="15px"
       sx={{
-        "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
-        },
-        "& .pro-icon-wrapper": {
-          backgroundColor: "transparent !important",
-        },
-        "& .pro-inner-item": {
-          padding: "5px 35px 5px 20px !important",
-        },
-        "& .pro-inner-item:hover": {
-          color: "#868dfb !important",
-        },
-        "& .pro-menu-item:active": {
-          color: "#6870fa !important",
-        },
+        margin: "10px 0 20px 0",
       }}
     >
-      <ProSidebar collapsed={isCollapsed}>
-        <Menu iconShape="square">
-          {/* LOGO AND MENU ICON */}
-          <MenuItem
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            icon={isCollapsed ? <MenuOutlined /> : undefined}
-            style={{
-              margin: "10px 0 20px 0",
-              color: colors.grey[100],
-            }}
-          >
-            {!isCollapsed && (
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                ml="15px"
-              >
-                <Typography variant="h3" color={colors.grey[100]}>
-                  ADMIN
-                </Typography>
-                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                  <MenuOutlined />
-                </IconButton>
-              </Box>
-            )}
-          </MenuItem>
+      {!collapsed && (
+        <Typography variant="h3" color={colors.grey[100]}>
+          ADMIN
+        </Typography>
+      )}
+      <IconButton onClick={handleToggleCollapse}>
+        <MenuOutlined />
+      </IconButton>
+    </Box>
+  );
 
-          {/* User */}
-          {!isCollapsed && (
-            <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="100px"
-                  height="100px"
-                  src={`../../assets/images/default-profile-pic.jpg`}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box>
-              <Box textAlign="center">
-                <Typography
-                  variant="h2"
-                  color={colors.grey[100]}
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  Ed Roh
-                </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
-                  VP Fancy Admin
-                </Typography>
-              </Box>
-            </Box>
+  // Function to render the item for each menu item in the sidebar
+  const renderMenuItem = (itemTitle, itemIcon, itemTo) => (
+    <Link to={itemTo} style={{ textDecoration: "none" }}>
+      <MenuItem
+        icon={itemIcon}
+        key={itemTitle}
+        onClick={() => setSelected(itemTitle)}
+        active={selected === itemTitle}
+        style={{
+          color: colors.grey[100],
+        }}
+      >
+        <Typography sx={{ color: colors.grey[100] }}>{itemTitle}</Typography>
+      </MenuItem>
+    </Link>
+  );
+
+  // Function to render the header for each category in the sidebar
+  const renderCategoryHeader = (categoryLabel) => (
+    <Typography
+      variant="h6"
+      color={colors.grey[300]}
+      sx={{ m: "15px 0 5px 20px" }}
+      key={categoryLabel}
+    >
+      {categoryLabel}
+    </Typography>
+  );
+
+  return (
+    <Box backgroundColor={colors.primary[400]}>
+      {/* Render the logo and menu icon section */}
+      {renderLogoAndMenuIcon()}
+
+      {/* Sidebar component with options for collapse and transition */}
+      <Sidebar
+        collapsed={collapsed}
+        transitionDuration={700}
+        rootStyles={{
+          [`.${sidebarClasses.container}`]: {
+            backgroundColor: colors.primary[400],
+          },
+          // [`.${menuClasses.icon}`]: {
+          //   backgroundColor: colors.greenAccent[400],
+          // },
+        }}
+      >
+        {/* Sidebar menu with categorized and individual menu items */}
+        <Menu>
+          {renderMenuItem("Dashboard", <HomeOutlined />, "/dashboard")}
+
+          {renderCategoryHeader("Data")}
+          {renderMenuItem("Manage Team", <PeopleOutline />, "/team")}
+          {renderMenuItem(
+            "Contacts Information",
+            <ContactsOutlined />,
+            "/contacts"
+          )}
+          {renderMenuItem(
+            "Invoices Balances",
+            <ReceiptOutlined />,
+            "/invoices"
           )}
 
-          {/* Menu Items */}
-          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-            <Item
-              title="Dashboard"
-              to="/"
-              icon={<HomeOutlined />}
-              onClick={() => setSelected(title)}
-              selected={selected}
-              setSelected={setSelected}
-            />
+          {renderCategoryHeader("Pages")}
+          {renderMenuItem("Profile Form", <PersonOutlineOutlined />, "/form")}
+          {renderMenuItem("Calendar", <CalendarTodayOutlined />, "/calendar")}
+          {renderMenuItem("FAQ Page", <HelpOutlineOutlined />, "/faq")}
 
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Data
-            </Typography>
-
-            <Item
-              title="Manage Team"
-              to="/team"
-              icon={<PeopleOutline />}
-              // onClick={() => setSelected(title)}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Contacts Information"
-              to="/contacts"
-              icon={<ContactsOutlined />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Invoices Balances"
-              to="/invoices"
-              icon={<ReceiptOutlined />}
-              // onClick={() => setSelected(title)}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Pages
-            </Typography>
-            <Item
-              title="Profile Form"
-              to="/form"
-              icon={<PersonOutlineOutlined />}
-              // onClick={() => setSelected(title)}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Calendar"
-              to="/calendar"
-              icon={<CalendarTodayOutlined />}
-              // onClick={() => setSelected(title)}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="FAQ Page"
-              to="/faq"
-              icon={<HelpOutlineOutlined />}
-              // onClick={() => setSelected(title)}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Charts
-            </Typography>
-            <Item
-              title="Bar Chart"
-              to="/bar"
-              icon={<BarChartOutlined />}
-              // onClick={() => setSelected(title)}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Pie Chart"
-              to="/pie"
-              icon={<PieChartOutlineOutlined />}
-              // onClick={() => setSelected(title)}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Line Chart"
-              to="/line"
-              icon={<TimelineOutlined />}
-              // onClick={() => setSelected(title)}
-              selected={selected}
-              setSelected={setSelected}
-            />
-          </Box>
+          {renderCategoryHeader("Charts")}
+          {renderMenuItem("Bar Chart", <BarChartOutlined />, "/bar")}
+          {renderMenuItem("Pie Chart", <PieChartOutlineOutlined />, "/pie")}
+          {renderMenuItem("Line Chart", <TimelineOutlined />, "/line")}
         </Menu>
-      </ProSidebar>
+      </Sidebar>
     </Box>
   );
 };

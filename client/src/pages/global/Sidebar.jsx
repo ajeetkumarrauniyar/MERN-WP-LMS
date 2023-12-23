@@ -24,13 +24,14 @@ import {
   sidebarClasses,
 } from "react-pro-sidebar";
 
-const SidebarComponent = ({ title, to, selected, setSelected }) => {
+const SidebarComponent = () => {
   // Access the current theme and color mode using Material-UI hooks
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   // State to manage the collapse/expand behavior of the sidebar
   const [collapsed, setCollapsed] = useState(false);
+  const [selected, setSelected] = useState("Dashboard");
 
   // Function to toggle the collapsed state of the sidebar
   const handleToggleCollapse = () => {
@@ -69,6 +70,8 @@ const SidebarComponent = ({ title, to, selected, setSelected }) => {
         active={selected === itemTitle}
         style={{
           color: colors.grey[100],
+          backgroundColor:
+            selected === itemTitle ? colors.primary[600] : "transparent",
         }}
       >
         <Typography sx={{ color: colors.grey[100] }}>{itemTitle}</Typography>
@@ -108,7 +111,7 @@ const SidebarComponent = ({ title, to, selected, setSelected }) => {
       >
         {/* Sidebar menu with categorized and individual menu items */}
         <Menu>
-          {renderMenuItem("Dashboard", <HomeOutlined />, "/dashboard")}
+          {renderMenuItem("Dashboard", <HomeOutlined />, "/")}
 
           {renderCategoryHeader("Data")}
           {renderMenuItem("Manage Team", <PeopleOutline />, "/team")}

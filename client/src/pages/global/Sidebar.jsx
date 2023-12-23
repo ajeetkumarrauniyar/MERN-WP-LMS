@@ -15,6 +15,11 @@ import {
   PieChartOutlineOutlined,
   TimelineOutlined,
   MenuOutlined,
+  HorizontalRuleOutlined,
+  MessageOutlined,
+  Groups2Outlined,
+  ForumOutlined,
+  PeopleOutlined,
 } from "@mui/icons-material";
 import {
   Sidebar,
@@ -29,7 +34,7 @@ const SidebarComponent = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  // State to manage the collapse/expand behavior of the sidebar
+  // State to manage the collapse/expand behavior of the sidebar and track the selected menu item
   const [collapsed, setCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
@@ -51,7 +56,7 @@ const SidebarComponent = () => {
     >
       {!collapsed && (
         <Typography variant="h3" color={colors.grey[100]}>
-          ADMIN
+          Hi! AJEET
         </Typography>
       )}
       <IconButton onClick={handleToggleCollapse}>
@@ -62,34 +67,49 @@ const SidebarComponent = () => {
 
   // Function to render the item for each menu item in the sidebar
   const renderMenuItem = (itemTitle, itemIcon, itemTo) => (
-    <Link to={itemTo} style={{ textDecoration: "none" }}>
-      <MenuItem
-        icon={itemIcon}
-        key={itemTitle}
-        onClick={() => setSelected(itemTitle)}
-        active={selected === itemTitle}
-        style={{
-          color: colors.grey[100],
-          backgroundColor:
-            selected === itemTitle ? colors.primary[600] : "transparent",
-        }}
+    <MenuItem
+      icon={itemIcon}
+      key={itemTitle}
+      onClick={() => setSelected(itemTitle)}
+      active={selected === itemTitle}
+      style={{
+        color: colors.grey[100],
+        backgroundColor:
+          selected === itemTitle ? colors.primary[600] : "transparent",
+      }}
+    >
+      <Link
+        to={itemTo}
+        style={{ textDecoration: "none", color: colors.grey[100] }}
       >
-        <Typography sx={{ color: colors.grey[100] }}>{itemTitle}</Typography>
-      </MenuItem>
-    </Link>
+        <Typography>{itemTitle}</Typography>
+      </Link>
+    </MenuItem>
   );
 
   // Function to render the header for each category in the sidebar
-  const renderCategoryHeader = (categoryLabel) => (
-    <Typography
-      variant="h6"
-      color={colors.grey[300]}
-      sx={{ m: "15px 0 5px 20px" }}
-      key={categoryLabel}
-    >
-      {categoryLabel}
-    </Typography>
-  );
+  const renderCategoryHeader = (categoryLabel) =>
+    !collapsed ? (
+      // Render the categoryLabel when expanded
+      <Typography
+        variant="h6"
+        color={colors.grey[300]}
+        sx={{ m: "15px 0 5px 20px" }}
+        key={categoryLabel}
+      >
+        {categoryLabel}
+      </Typography>
+    ) : (
+      // Render the icon when collapsed
+      <HorizontalRuleOutlined
+        sx={{
+          margin: '0 auto', 
+          fontSize: '20px',
+          color: colors.primary[200],
+          display: 'block',
+        }}
+      />
+    );
 
   return (
     <Box backgroundColor={colors.primary[400]}>
@@ -113,7 +133,7 @@ const SidebarComponent = () => {
         <Menu>
           {renderMenuItem("Dashboard", <HomeOutlined />, "/")}
 
-          {renderCategoryHeader("Data")}
+          {renderCategoryHeader("E-LEARNING")}
           {renderMenuItem("Manage Team", <PeopleOutline />, "/team")}
           {renderMenuItem(
             "Contacts Information",
@@ -126,12 +146,14 @@ const SidebarComponent = () => {
             "/invoices"
           )}
 
-          {renderCategoryHeader("Pages")}
-          {renderMenuItem("Profile Form", <PersonOutlineOutlined />, "/form")}
-          {renderMenuItem("Calendar", <CalendarTodayOutlined />, "/calendar")}
-          {renderMenuItem("FAQ Page", <HelpOutlineOutlined />, "/faq")}
+          {renderCategoryHeader("COMMUNITY")}
+          {renderMenuItem("Activity", <TimelineOutlined />, "/form")}
+          {renderMenuItem("Messages", <MessageOutlined />, "/calendar")}
+          {renderMenuItem("Members", <PeopleOutlined />, "/faq")}
+          {renderMenuItem("Groups", <Groups2Outlined />, "/faq")}
+          {renderMenuItem("Forums", <ForumOutlined />, "/faq")}
 
-          {renderCategoryHeader("Charts")}
+          {renderCategoryHeader("RESOURCES")}
           {renderMenuItem("Bar Chart", <BarChartOutlined />, "/bar")}
           {renderMenuItem("Pie Chart", <PieChartOutlineOutlined />, "/pie")}
           {renderMenuItem("Line Chart", <TimelineOutlined />, "/line")}

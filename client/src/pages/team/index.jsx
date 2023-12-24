@@ -1,3 +1,4 @@
+// Import necessary components and functions from the theme file and Material-UI
 import { Box, Hidden, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
@@ -10,9 +11,11 @@ import {
 } from "@mui/icons-material";
 
 const Team = () => {
+  // Access the current theme and color mode using Material-UI hooks
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
+  // Define columns for the DataGrid
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
     {
@@ -84,35 +87,45 @@ const Team = () => {
   return (
     <Box m="20px">
       <Header title="Manage Team" />
+      
+      {/* DataGrid component displaying team information */}
       <Box
         m="40px 0 0 0"
         height="75vh"
         sx={{
+          // Style for the root of the DataGrid
           "& .MuiDataGrid-root": {
             border: "none",
           },
+          // Style for individual cells in the DataGrid
           "& .MuiDataGrid-cell": {
             borderBottom: "none",
           },
+          // Style for cells in the "name" column
           "& .name-column-cell": {
             color: colors.greenAccent[300],
           },
+          // Style for the column headers in the DataGrid
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[700],
             borderBottom: "none",
           },
+          // Style for the virtual scroller in the DataGrid
           "& .MuiDataGrid-virtualScroller": {
             backgroundColor: colors.primary[400],
           },
+          // Style for the footer container in the DataGrid
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
             backgroundColor: colors.blueAccent[700],
           },
+          // Style for the checkbox in the DataGrid
           "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[200]} !important`,
           },
         }}
       >
+        {/* DataGrid component with rows and columns */}
         <DataGrid rows={mockDataTeam} columns={columns} />
       </Box>
     </Box>

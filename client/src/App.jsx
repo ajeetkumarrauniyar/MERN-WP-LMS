@@ -5,9 +5,9 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./pages/global/Topbar";
 import SidebarComponent from "./pages/global/Sidebar";
 import Dashboard from "./pages/dashboard";
-// import Team from "./pages/team";
-// import Invoices from "./pages/invoices";
-// import Contacts from "./pages/contacts";
+import Team from "./pages/team";
+import Contacts from "./pages/contacts";
+import Invoices from "./pages/invoices";
 // import Bar from "./pages/bar";
 // import Form from "./pages/form";
 // import Line from "./pages/line";
@@ -32,9 +32,9 @@ const App = () => {
             <Topbar />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              {/* <Route path="/team" element={<Team />} /> */}
-              {/* <Route path="/invoices" element={<Invoices />} /> */}
-              {/* <Route path="/contacts" element={<Contacts />} /> */}
+              <Route path="/team" element={<Team />} />
+              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/invoices" element={<Invoices />} />
               {/* <Route path="/calender" element={<Calender />} /> */}
               {/* <Route path="/form" element={<Form />} /> */}
               {/* <Route path="/bar" element={<Bar />} /> */}

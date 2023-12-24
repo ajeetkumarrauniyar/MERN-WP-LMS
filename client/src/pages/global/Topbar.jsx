@@ -1,5 +1,5 @@
 // Import necessary components and functions from Material-UI and the theme file
-import { Box, IconButton, useTheme } from "@mui/material";
+import { Badge, Box, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import InputBase from "@mui/material/InputBase";
@@ -53,17 +53,23 @@ const Topbar = () => {
 
         {/* Messages icon */}
         <IconButton>
-          <MessageOutlined />
+          <Badge badgeContent={0} max={9} color="info">
+            <MessageOutlined />
+          </Badge>
         </IconButton>
 
         {/* Notification icon */}
         <IconButton>
-          <NotificationsOutlined />
+          <Badge badgeContent={2} max={9} color="info">
+            <NotificationsOutlined />
+          </Badge>
         </IconButton>
 
         {/* Cart icon */}
         <IconButton>
-          <ShoppingCartOutlined />
+          <Badge badgeContent={2} max={9} color="info">
+            <ShoppingCartOutlined />
+          </Badge>
         </IconButton>
 
         {/* Settings icon */}

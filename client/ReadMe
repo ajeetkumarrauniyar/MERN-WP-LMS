@@ -3,8 +3,7 @@
 Install the required packages using npm:
 
 ```bash
-npm install @mui/material
-npm install @mui/material react-router-dom react-pro-sidebar
+npm install @mui/material @mui/x-data-grid react-router-dom react-pro-sidebar
 
 # Color Mode and Theme Manager (theme.js)
 
@@ -26,13 +25,13 @@ npm install @mui/material react-router-dom react-pro-sidebar
 
 # Topbar Component
 
-- **Utility Purpose:** Customizable topbar component for React applications.
+- **Utility Purpose:** Customizable topbar component.
 - **Features:**
   - Includes a search bar, mode toggle, and various icons.
 
 # Sidebar Component
 
-- **Utility Purpose:** Customizable sidebar component for React applications.
+- **Utility Purpose:** Customizable sidebar component.
 - **Features:**
   - Seamless integration with Material-UI and external libraries.
   - Provides navigation options with icons.
@@ -40,7 +39,7 @@ npm install @mui/material react-router-dom react-pro-sidebar
 
 # Header Component
 
-- **Utility Purpose:** Simple header component for React applications.
+- **Utility Purpose:** Simple header component.
 - **Features:**
   - Displays a title with customizable styling.
 
@@ -49,3 +48,22 @@ npm install @mui/material react-router-dom react-pro-sidebar
 - **Utility Purpose:** Dashboard component for React applications.
 - **Key Feature:**
   - Customizable header for presenting key information.
+
+
+## Team Management Component
+- **Utility Purpose:** Designed for managing and displaying team details.
+- **Key Feature:**
+  - Efficient team management and display functionality.
+
+# Invoices Component
+
+- **Utility Purpose:** Manage and display invoices.
+- **Key Feature:**
+  - Streamlined invoice management and display functionality.
+
+# Contacts Information Component
+
+- **Utility Purpose:**  Manage and display detailed information about team contacts in a React application.
+- **Key Feature:** 
+  - Detailed information presentation for team contacts.
+

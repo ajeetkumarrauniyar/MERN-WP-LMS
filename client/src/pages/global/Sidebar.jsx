@@ -145,6 +145,11 @@ const SidebarComponent = () => {
             <ReceiptOutlined />,
             "/invoices"
           )}
+          {renderMenuItem(
+            "Edit Profile",
+            <PersonOutlineOutlined/>,
+            "/edit-profile"
+          )}
 
           {renderCategoryHeader("COMMUNITY")}
           {renderMenuItem("Activity", <TimelineOutlined />, "/form")}

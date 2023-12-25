@@ -8,6 +8,7 @@ import Dashboard from "./pages/dashboard";
 import Team from "./pages/team";
 import Contacts from "./pages/contacts";
 import Invoices from "./pages/invoices";
+import EditProfileForm from "./pages/edit-profile";
 // import Bar from "./pages/bar";
 // import Form from "./pages/form";
 // import Line from "./pages/line";
@@ -35,6 +36,7 @@ const App = () => {
               <Route path="/team" element={<Team />} />
               <Route path="/contacts" element={<Contacts />} />
               <Route path="/invoices" element={<Invoices />} />
+              <Route path="/edit-profile" element={<EditProfileForm />} />
               {/* <Route path="/calender" element={<Calender />} /> */}
               {/* <Route path="/form" element={<Form />} /> */}
               {/* <Route path="/bar" element={<Bar />} /> */}

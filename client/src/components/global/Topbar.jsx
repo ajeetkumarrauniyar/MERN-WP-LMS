@@ -13,6 +13,12 @@ import {
   PersonOutlineOutlined,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
+// import {
+//   SignOutButton,
+//   SignInButton,
+//   SignedIn,
+//   SignedOut,
+// } from "@clerk/clerk-react";
 
 const Topbar = () => {
   // Access the current theme and color mode using Material-UI hooks

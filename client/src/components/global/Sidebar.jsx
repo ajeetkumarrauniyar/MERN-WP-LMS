@@ -10,7 +10,7 @@ import {
   ContactsOutlined,
   PersonOutlineOutlined,
   CalendarTodayOutlined,
-  HelpOutlineOutlined,
+  // HelpOutlineOutlined,
   BarChartOutlined,
   PieChartOutlineOutlined,
   TimelineOutlined,
@@ -25,7 +25,7 @@ import {
   Sidebar,
   Menu,
   MenuItem,
-  menuClasses,
+  // menuClasses,
   sidebarClasses,
 } from "react-pro-sidebar";
 
@@ -65,28 +65,6 @@ const SidebarComponent = () => {
     </Box>
   );
 
-  // Function to render the item for each menu item in the sidebar
-  const renderMenuItem = (itemTitle, itemIcon, itemTo) => (
-    <MenuItem
-      icon={itemIcon}
-      key={itemTitle}
-      onClick={() => setSelected(itemTitle)}
-      active={selected === itemTitle}
-      style={{
-        color: colors.grey[100],
-        backgroundColor:
-          selected === itemTitle ? colors.primary[600] : "transparent",
-      }}
-    >
-      <Link
-        to={itemTo}
-        style={{ textDecoration: "none", color: colors.grey[100] }}
-      >
-        <Typography>{itemTitle}</Typography>
-      </Link>
-    </MenuItem>
-  );
-
   // Function to render the header for each category in the sidebar
   const renderCategoryHeader = (categoryLabel) =>
     !collapsed ? (
@@ -103,13 +81,35 @@ const SidebarComponent = () => {
       // Render the icon when collapsed
       <HorizontalRuleOutlined
         sx={{
-          margin: '0 auto', 
-          fontSize: '20px',
+          margin: "0 auto",
+          fontSize: "20px",
           color: colors.primary[200],
-          display: 'block',
+          display: "block",
         }}
       />
     );
+
+  // Function to render the item for each menu item in the sidebar
+  const renderMenuItem = (itemTitle, itemIcon, itemTo) => (
+    <Link
+      to={itemTo}
+      style={{ textDecoration: "none", color: colors.grey[100] }}
+    >
+      <MenuItem
+        icon={itemIcon}
+        key={itemTitle}
+        onClick={() => setSelected(itemTitle)}
+        active={selected === itemTitle}
+        style={{
+          color: colors.grey[100],
+          backgroundColor:
+            selected === itemTitle ? colors.primary[600] : "transparent",
+        }}
+      >
+        <Typography>{itemTitle}</Typography>
+      </MenuItem>
+    </Link>
+  );
 
   return (
     <Box backgroundColor={colors.primary[400]}>
@@ -147,16 +147,17 @@ const SidebarComponent = () => {
           )}
           {renderMenuItem(
             "Edit Profile",
-            <PersonOutlineOutlined/>,
+            <PersonOutlineOutlined />,
             "/edit-profile"
           )}
+          {renderMenuItem("Calendar", <CalendarTodayOutlined />, "/calendar")}
 
           {renderCategoryHeader("COMMUNITY")}
-          {renderMenuItem("Activity", <TimelineOutlined />, "/form")}
-          {renderMenuItem("Messages", <MessageOutlined />, "/calendar")}
-          {renderMenuItem("Members", <PeopleOutlined />, "/faq")}
-          {renderMenuItem("Groups", <Groups2Outlined />, "/faq")}
-          {renderMenuItem("Forums", <ForumOutlined />, "/faq")}
+          {renderMenuItem("Activity", <TimelineOutlined />, "/activity")}
+          {renderMenuItem("Messages", <MessageOutlined />, "/messages")}
+          {renderMenuItem("Members", <PeopleOutlined />, "/members")}
+          {renderMenuItem("Groups", <Groups2Outlined />, "/groups")}
+          {renderMenuItem("Forums", <ForumOutlined />, "/forums")}
 
           {renderCategoryHeader("RESOURCES")}
           {renderMenuItem("Bar Chart", <BarChartOutlined />, "/bar")}

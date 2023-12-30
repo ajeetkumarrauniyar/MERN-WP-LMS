@@ -1281,3 +1281,29 @@ export const mockGeographyData = [
     value: 171135,
   },
 ];
+
+export const mockCalenderData = [
+  {
+    id: "event1",
+    calendarId: "cal2",
+    title: "Weekly meeting",
+    start: "2022-06-07T09:00:00",
+    end: "2022-06-07T10:00:00",
+  },
+  {
+    id: "event2",
+    calendarId: "cal1",
+    title: "Lunch appointment",
+    start: "2022-06-08T12:00:00",
+    end: "2022-06-08T13:00:00",
+  },
+  {
+    id: "event3",
+    calendarId: "cal2",
+    title: "Vacation",
+    start: "2022-06-08",
+    end: "2022-06-10",
+    isAllday: true,
+    category: "allday",
+  },
+];

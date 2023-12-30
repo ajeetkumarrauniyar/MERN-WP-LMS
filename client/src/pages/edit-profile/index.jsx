@@ -18,11 +18,17 @@ const initialValues = {
 const phoneRegExp =
   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 
+const emailRegExp =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 // Create a Yup validation schema
 const userSchema = yup.object().shape({
   firstName: yup.string().required("Required"),
   lastName: yup.string().required("Required"),
-  email: yup.string().email("Invalid E-mail").required("Required"),
+  email: yup
+    .string()
+    .matches(emailRegExp, "Invalid E-mail")
+    .required("Required"),
   contact: yup
     .string()
     .matches(phoneRegExp, "Phone number is not valid")
@@ -153,12 +159,12 @@ const EditProfileForm = () => {
             {/* Button for submitting the form */}
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
-               Update Profile
+                Update Profile
               </Button>
             </Box>
           </form>
         )}
-      </Formik> 
+      </Formik>
     </Box>
   );
 };

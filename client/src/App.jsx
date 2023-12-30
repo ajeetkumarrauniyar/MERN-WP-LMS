@@ -2,19 +2,20 @@
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
-import Topbar from "./pages/global/Topbar";
-import SidebarComponent from "./pages/global/Sidebar";
+import Topbar from "./components/global/Topbar";
+import SidebarComponent from "./components/global/Sidebar";
 import Dashboard from "./pages/dashboard";
 import Team from "./pages/team";
 import Contacts from "./pages/contacts";
 import Invoices from "./pages/invoices";
 import EditProfileForm from "./pages/edit-profile";
+import CalenderScene from "./pages/calender";
 // import Bar from "./pages/bar";
 // import Form from "./pages/form";
 // import Line from "./pages/line";
 // import Pie from "./pages/pie";
 // import FAQ from "./pages/faq";
-// import Calender from "./pages/calender";
+// import { SignedOut, SignedIn } from "@clerk/clerk-react";
 
 const App = () => {
   // Retrieve the current theme and color mode using the useMode hook
@@ -28,6 +29,10 @@ const App = () => {
         {/* Apply global baseline CSS styles */}
         <CssBaseline />
         <div className="app">
+          {/* <SignedOut>
+            <p>This content is public. Only signed out users can see this.</p>
+          </SignedOut> */}
+          {/* <SignedIn> */}
           <SidebarComponent />
           <main className="content">
             <Topbar />
@@ -37,7 +42,7 @@ const App = () => {
               <Route path="/contacts" element={<Contacts />} />
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/edit-profile" element={<EditProfileForm />} />
-              {/* <Route path="/calender" element={<Calender />} /> */}
+              <Route path="/calendar" element={<CalenderScene />} />
               {/* <Route path="/form" element={<Form />} /> */}
               {/* <Route path="/bar" element={<Bar />} /> */}
               {/* <Route path="/pie" element={<Pie />} /> */}
@@ -45,6 +50,7 @@ const App = () => {
               {/* <Route path="/faq" element={<FAQ />} /> */}
             </Routes>
           </main>
+          {/* </SignedIn> */}
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>

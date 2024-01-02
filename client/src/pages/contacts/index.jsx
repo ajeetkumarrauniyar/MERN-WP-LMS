@@ -3,7 +3,7 @@ import { Box, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
-import Header from "../../components/Header";
+import  Header  from "../../components/Header";
 
 const Contacts = () => {
   // Access the current theme and color mode using Material-UI hooks
@@ -62,7 +62,7 @@ const Contacts = () => {
   return (
     <Box m="20px">
       <Header title="Team Contacts Info" />
-      
+
       {/* Container for the DataGrid with specified styles */}
       <Box
         m="40px 0 0 0"

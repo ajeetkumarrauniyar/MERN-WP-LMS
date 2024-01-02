@@ -10,15 +10,9 @@ import {
   MessageOutlined,
   NotificationsOutlined,
   SettingsOutlined,
-  PersonOutlineOutlined,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
-// import {
-//   SignOutButton,
-//   SignInButton,
-//   SignedIn,
-//   SignedOut,
-// } from "@clerk/clerk-react";
+import { UserButton } from "@clerk/clerk-react";
 
 const Topbar = () => {
   // Access the current theme and color mode using Material-UI hooks
@@ -83,10 +77,8 @@ const Topbar = () => {
           <SettingsOutlined />
         </IconButton>
 
-        {/* Person icon */}
-        <IconButton>
-          <PersonOutlineOutlined />
-        </IconButton>
+        {/* User  */}
+        <UserButton />
       </Box>
     </Box>
   );

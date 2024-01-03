@@ -1,9 +1,19 @@
-## Installation
+# References: 
+https://learndash.demos.buddyboss.com/
+https://anesta.ancorathemes.com/
+https://minimals.cc/dashboard
+https://alliance.themerex.net/wp-login.php
+
+## Dashboard https://sneat-vuetify-admin-template.vercel.app/dashboard
+
+
+# Installation
 
 Install the required packages using npm:
 
 ```bash
 npm install @mui/material @mui/x-data-grid react-router-dom react-pro-sidebar
+
 
 # Color Mode and Theme Manager (theme.js)
 

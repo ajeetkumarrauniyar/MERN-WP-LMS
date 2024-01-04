@@ -46,6 +46,7 @@ public/
 .DS_Store
 .env
 .env.local
+.txt
 
 # Ignore env files
 !.vscode/extensions.json

@@ -41,6 +41,7 @@ Welcome to our Comprehensive Learning Hub, an all-in-one educational website des
 
 ## Feedback and Support
 
-We value your feedback! If you encounter any issues or have suggestions for improvement, please reach out to our support team at support@comprehensivelearninghub.com.
+We value your feedback! If you encounter any issues or have suggestions for improvement, please reach out to our support team at support@asha-ekumeed.com.
 
 Join us in shaping the future of online education! Let's learn, connect, and succeed together.
+

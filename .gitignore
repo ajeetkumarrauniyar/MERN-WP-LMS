@@ -1,5 +1,5 @@
 # Node.js
-/node_modules
+node_modules
 
 # React build
 /build
@@ -27,6 +27,7 @@ Thumbs.db
 # Deployment folders
 /deployment
 /ssl-certificates
+/server
 
 # Editor directories and files
 .idea/

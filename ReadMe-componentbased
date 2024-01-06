@@ -1,0 +1,81 @@
+# GitHub Repository: https://github.com/ajeetkumarrauniyar/MERN-WP-LMS
+
+# References: 
+https://learndash.demos.buddyboss.com/
+https://anesta.ancorathemes.com/
+https://minimals.cc/dashboard
+https://alliance.themerex.net/wp-login.php
+https://themewagon.github.io/corona-free-dark-bootstrap-admin-template/index.html
+https://sneat-vuetify-admin-template.vercel.app/dashboard
+
+
+# Installation
+
+Install the required packages using npm:
+
+```bash
+npm install @mui/material @mui/x-data-grid react-router-dom react-pro-sidebar
+
+
+# Color Mode and Theme Manager (theme.js)
+
+- **Utility Purpose:** Manages color mode and theme in a React application.
+- **Features:**
+  - Context for color mode and theme.
+  - Color tokens based on the selected mode (dark or light).
+  - MUI theme settings.
+- **Additional Functionality:**
+  - Color mode context.
+  - Hook for toggling between light and dark modes.
+
+# Color-Enabled React App (App.jsx)
+
+- **Utility Purpose:** Integrates color mode and theme management into a React application.
+- **Key Points:**
+  - Ensures seamless integration with Material-UI.
+  - Utilizes the color theme from the provided theme file.
+
+# Topbar Component
+
+- **Utility Purpose:** Customizable topbar component.
+- **Features:**
+  - Includes a search bar, mode toggle, and various icons.
+
+# Sidebar Component
+
+- **Utility Purpose:** Customizable sidebar component.
+- **Features:**
+  - Seamless integration with Material-UI and external libraries.
+  - Provides navigation options with icons.
+  - Supports collapsing and expanding for a user-friendly experience.
+
+# Header Component
+
+- **Utility Purpose:** Simple header component.
+- **Features:**
+  - Displays a title with customizable styling.
+
+# Dashboard Component
+
+- **Utility Purpose:** Dashboard component for React applications.
+- **Key Feature:**
+  - Customizable header for presenting key information.
+
+
+## Team Management Component
+- **Utility Purpose:** Designed for managing and displaying team details.
+- **Key Feature:**
+  - Efficient team management and display functionality.
+
+# Invoices Component
+
+- **Utility Purpose:** Manage and display invoices.
+- **Key Feature:**
+  - Streamlined invoice management and display functionality.
+
+# Contacts Information Component
+
+- **Utility Purpose:**  Manage and display detailed information about team contacts in a React application.
+- **Key Feature:** 
+  - Detailed information presentation for team contacts.
+

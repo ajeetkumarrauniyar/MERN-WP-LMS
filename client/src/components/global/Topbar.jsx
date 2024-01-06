@@ -1,5 +1,5 @@
 // Import necessary components and functions from Material-UI and the theme file
-import { Badge, Box, IconButton, useTheme } from "@mui/material";
+import { Badge, Box, Button, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import InputBase from "@mui/material/InputBase";
@@ -12,7 +12,12 @@ import {
   SettingsOutlined,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
-import { UserButton } from "@clerk/clerk-react";
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const Topbar = () => {
   // Access the current theme and color mode using Material-UI hooks
@@ -78,7 +83,19 @@ const Topbar = () => {
         </IconButton>
 
         {/* User  */}
-        <UserButton />
+        {/* Renders a "Log In" button  when the user is signed out.  */}
+        <SignedOut>
+          <SignInButton>
+            <Button variant="contained" className={"inputButton"}>
+              Log In
+            </Button>
+          </SignInButton>
+        </SignedOut>
+
+        {/* Renders a UserButton component when the user is signed in.  */}
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </Box>
     </Box>
   );

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import CommonHeader from "../../components/calendar/headerToolbar";
-import ListView from "../../components/calendar/listView"; 
+import ListView from "../../components/calendar/listView";
 import DayView from "../../components/calendar/dayView";
 import MonthView from "../../components/calendar/monthView";
 import WeekView from "../../components/calendar/weekView";
 
-const App = () => {
+const Calendar = () => {
   const [currentView, setCurrentView] = useState("month");
 
   const handleSelectView = (view) => {
@@ -24,4 +24,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Calendar;

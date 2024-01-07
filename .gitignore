@@ -20,14 +20,14 @@ Thumbs.db
 
 # Configuration files
 /.env
-.env
+# .env
 .env.local
 .txt
 
 # Deployment folders
 /deployment
 /ssl-certificates
-/server
+# /server
 
 # Editor directories and files
 .idea/

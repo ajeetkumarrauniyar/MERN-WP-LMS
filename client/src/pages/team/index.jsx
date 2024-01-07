@@ -1,9 +1,9 @@
 // Import necessary components and functions from the theme file and Material-UI
 import { Box, Hidden, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
-import { mockDataTeam } from "../../data/mockData";
-import Header from "../../components/Header";
+import { tokens } from "theme";
+import { mockDataTeam } from "mockData/mockData";
+import Header from "components/Header";
 import {
   AdminPanelSettingsOutlined,
   LockOutlined,

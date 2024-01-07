@@ -1,4 +1,4 @@
-import Topbar from "../../components/global/Topbar";
+import Topbar from "components/global/Topbar";
 
 const Homepage = () => {
   return <Topbar />;

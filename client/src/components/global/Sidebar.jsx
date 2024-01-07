@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
-import { tokens } from "../../theme";
+import { tokens } from "theme";
 import {
   HomeOutlined,
   PeopleOutline,

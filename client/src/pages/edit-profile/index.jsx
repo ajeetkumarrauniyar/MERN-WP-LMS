@@ -2,7 +2,7 @@
 import { Box, Button, TextField } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
-import Header from "../../components/Header";
+import Header from "components/Header";
 
 // Define the initial form values
 const initialValues = {

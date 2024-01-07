@@ -1,7 +1,7 @@
 // Import necessary components and functions from Material-UI and the theme file
 import { Badge, Box, Button, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
-import { ColorModeContext, tokens } from "../../theme";
+import { ColorModeContext, tokens } from "theme";
 import InputBase from "@mui/material/InputBase";
 import {
   SearchOutlined,

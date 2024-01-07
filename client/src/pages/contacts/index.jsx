@@ -1,9 +1,9 @@
 // Import necessary components and functions from the theme file and Material-UI
 import { Box, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
-import { mockDataContacts } from "../../data/mockData";
-import  Header  from "../../components/Header";
+import { tokens } from "theme";
+import { mockDataContacts } from "mockData/mockData";
+import Header from "components/Header";
 
 const Contacts = () => {
   // Access the current theme and color mode using Material-UI hooks

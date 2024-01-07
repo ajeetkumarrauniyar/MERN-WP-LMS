@@ -53,7 +53,8 @@
     "@components/*": ["components/*"],
     "@mockData/*": ["mockData/*"],
     "@features/*": ["features/*"],
-    "@pages/*": ["pages/*"]
+    "@pages/*": ["pages/*"],
+    "@theme/*": ["@theme/*"]
   }
   }  
 

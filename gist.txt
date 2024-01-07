@@ -1,0 +1,156 @@
+# Models
+----------------------------------------------------------------
+1. UserProfiles
+Fields:
+    _id (ObjectId, Primary Key)
+    username (String, Unique)
+    email (String, Unique)
+    passwordHash (String)
+    UserProfiles
+        fullName: { type: String },
+        bio: { type: String },
+        avatar: { type: String },
+        profileImageUrl (String)
+    social  chatRooms: [ref: 'ChatRoom'],
+            discussionForums: [ref: 'DiscussionForum'],
+    registrationDate (Date)
+
+2. ChatRooms
+Fields:
+    _id (ObjectId, Primary Key)
+    roomName (String)
+    description (String)
+    creationDate (Date)
+
+3. DiscussionForums
+Fields:
+    _id (ObjectId, Primary Key)
+    title (String)
+    description (String)
+    creationDate (Date)
+
+4. Courses
+Fields:
+    _id (ObjectId, Primary Key)
+    courseName (String)
+    description (String)
+    instructorId (ObjectId, references UserProfiles)
+    startDate (Date)
+    endDate (Date)
+
+5. CourseMaterials
+Fields:
+    _id (ObjectId, Primary Key)
+    courseId (ObjectId, references Courses)
+    title (String)
+    content (String)
+    uploadDate (Date)
+
+6. Assessments
+Fields:
+    _id (ObjectId, Primary Key)
+    courseId (ObjectId, references Courses)
+    title (String)
+    description (String)
+    dueDate (Date)
+
+7. QuestionsAnswers
+Fields:
+    _id (ObjectId, Primary Key)
+    userId (ObjectId, references UserProfiles)
+    forumId (ObjectId, references DiscussionForums)
+    question (String)
+    answer (String)
+    postDate (Date)
+
+8. ClassroomSessions
+Fields:
+    _id (ObjectId, Primary Key)
+    courseId (ObjectId, references Courses)
+    sessionName (String)
+    schedule (Date)
+
+9. ResourceMaterials
+Fields:
+    _id (ObjectId, Primary Key)
+    title (String)
+    description (String)
+    downloadLink (String)
+    uploadDate (Date)
+
+10. MockTests
+Fields:
+    _id (ObjectId, Primary Key)
+    courseId (ObjectId, references Courses)
+    title (String)
+    description (String)
+    releaseDate (Date)
+    dueDate (Date)
+
+# Relationships
+----------------------------------------------------------------
+1. One-to-Many: UserProfiles to ChatRooms (A user can participate in multiple chat rooms).
+2. One-to-Many: UserProfiles to DiscussionForums (A user can engage in multiple discussion forums).
+3. One-to-Many: UserProfiles to QuestionsAnswers (A user can post multiple questions and answers).
+4. One-to-Many: Courses to CourseMaterials (A course can have multiple materials).
+5. One-to-Many: Courses to Assessments (A course can have multiple assessments).
+6. One-to-Many: Courses to ClassroomSessions (A course can have multiple interactive sessions).
+7. One-to-Many: Courses to MockTests (A course can have multiple mock/practice tests).
+8. Many-to-Many: UserProfiles to Courses (A user can enroll in multiple courses, and a course can have multiple enrolled users).        
+
+# Indexing
+----------------------------------------------------------------
+1. Index on username in UserProfiles for quick user retrieval.
+2. Index on roomName in ChatRooms for efficient chat room access.
+3. Index on title in DiscussionForums for quick forum retrieval.
+4. Index on courseName in Courses for rapid course access.
+5. Index on courseId in CourseMaterials for efficient material retrieval.
+6. Index on courseId in Assessments for quick assessment access.
+7. Index on userId in QuestionsAnswers for swift Q&A retrieval.
+8. Index on courseId in ClassroomSessions for fast session access.
+9. Index on title in ResourceMaterials for quick resource retrieval.
+10. Index on courseId in MockTests for efficient mock test access.
+
+# List of Routes with CRUD Operations:
+----------------------------------------------------------------
+## User Routes:
+
+Create: POST /api/users
+Read: GET /api/users/:userId
+Update: PUT /api/users/:userId
+Delete: DELETE /api/users/:userId
+
+## Chat Room Routes:
+
+Create: POST /api/chat-rooms
+Read: GET /api/chat-rooms/:roomId
+Update: PUT /api/chat-rooms/:roomId
+Delete: DELETE /api/chat-rooms/:roomId
+
+## Discussion Forum Routes:
+
+Create: POST /api/discussion-forums
+Read: GET /api/discussion-forums/:forumId
+Update: PUT /api/discussion-forums/:forumId
+Delete: DELETE /api/discussion-forums/:forumId
+
+## Course Routes:
+
+Create: POST /api/courses
+Read: GET /api/courses/:courseId
+Update: PUT /api/courses/:courseId
+Delete: DELETE /api/courses/:courseId
+
+## Interactive Classroom Routes:
+
+Create: POST /api/interactive-classrooms
+Read: GET /api/interactive-classrooms/:classroomId
+Update: PUT /api/interactive-classrooms/:classroomId
+Delete: DELETE /api/interactive-classrooms/:classroomId
+
+## Practice Test Routes:
+
+Create: POST /api/practice-tests
+Read: GET /api/practice-tests/:testId
+Update: PUT /api/practice-tests/:testId
+Delete: DELETE /api/practice-tests/:testId

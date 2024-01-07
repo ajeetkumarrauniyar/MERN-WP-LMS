@@ -11,3 +11,5 @@
 8. Add todo section & take notes
 9. AI Chatbot integration (openAI library)
 10 Add a validation check for temp emails
+
+<a onClick={() => clerk.redirectWithAuth('your_destination_url')}>My link</a>

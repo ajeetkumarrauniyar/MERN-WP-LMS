@@ -47,11 +47,13 @@
     "vite": "^5.0.8",
     "vite-plugin-env": "^1.0.1"
   },
-  "resolve-path-alias": {
-    "alias": {
-      "@/*": "src/*",
-      "@components/*": "src/components/*",
-      "@assets/*": "src/assets/*"
-    }
+  "baseUrl": "./src",
+  "paths": {
+    "@assets/*":["assets/* "],
+    "@components/*": ["components/*"],
+    "@mockData/*": ["mockData/*"],
+    "@features/*": ["features/*"],
+    "@pages/*": ["pages/*"]
   }
-}
+  }  
+

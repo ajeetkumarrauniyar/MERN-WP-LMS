@@ -14,6 +14,7 @@ import {
 } from "@mui/icons-material";
 import { SignedIn, SignedOut, UserButton, useClerk } from "@clerk/clerk-react";
 
+import "./Topbar.css";
 // SignUpButton component for sign-up action
 function SignUpButton() {
   const clerk = useClerk();
@@ -108,15 +109,9 @@ const Topbar = () => {
             <SignedOut>
               <ul>
                 <li>
-                  {/* <Button variant="contained" className={"inputButton"}>
-                  Sign Up
-                </Button> */}
                   <SignUpButton />
                 </li>
                 <li>
-                  {/* <Button variant="contained" className={"inputButton"}>
-                  Log In
-                </Button> */}
                   <SignInButton />
                 </li>
               </ul>
@@ -129,7 +124,7 @@ const Topbar = () => {
         </Box>
       </nav>
     </header>
-  );
+  )
 };
 
 export default Topbar;

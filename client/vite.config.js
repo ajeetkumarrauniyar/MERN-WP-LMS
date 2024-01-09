@@ -17,7 +17,8 @@ export default defineConfig({
       mockData:"/src/data",
       features:"/src/features",
       pages: "/src/pages",
-      theme: "/src/theme"
+      theme: "/src/theme",
+      utils: "/src/utils",
     },
   },
 });

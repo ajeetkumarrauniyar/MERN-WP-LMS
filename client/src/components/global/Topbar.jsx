@@ -9,12 +9,13 @@ import {
   DarkModeOutlined,
   MessageOutlined,
   NotificationsOutlined,
-  SettingsOutlined,
-  ShoppingCartOutlined,
+  // ShoppingCartOutlined,
 } from "@mui/icons-material";
 import { SignedIn, SignedOut, UserButton, useClerk } from "@clerk/clerk-react";
+import { mediaQuery } from "utils/mediaQueries";
 
 import "./Topbar.css";
+
 // SignUpButton component for sign-up action
 function SignUpButton() {
   const clerk = useClerk();
@@ -57,9 +58,9 @@ const Topbar = () => {
     <header>
       <nav>
         <Box display="flex" justifyContent="space-between" p={2}>
-          {/* SearchBar */}
+          {/* SearchBar for medium & large devices */}
           <Box
-            display="flex"
+            display={{ sm: "none", md: "flex" }}
             backgroundColor={colors.primary[400]}
             borderRadius="3px"
           >
@@ -71,6 +72,15 @@ const Topbar = () => {
               <SearchOutlined />
             </IconButton>
           </Box>
+
+          {/* Search button for small devices */}
+          <IconButton
+            type="button"
+            className="search-icon-button-small-device"
+            sx={{ p: 1, display: { sm: "block", md: "none" } }}
+          >
+            <SearchOutlined />
+          </IconButton>
 
           {/* Icons */}
           <Box display="flex">
@@ -95,15 +105,11 @@ const Topbar = () => {
               </Badge>
             </IconButton>
             {/* Cart icon */}
-            <IconButton>
+            {/* <IconButton>
               <Badge badgeContent={2} max={9} color="info">
                 <ShoppingCartOutlined />
               </Badge>
-            </IconButton>
-            {/* Settings icon */}
-            <IconButton>
-              <SettingsOutlined />
-            </IconButton>
+            </IconButton> */}
             {/* User actions */}
             {/* Renders a "Sign Up" and "Log In" button when the user is signed out. */}
             <SignedOut>
@@ -124,7 +130,7 @@ const Topbar = () => {
         </Box>
       </nav>
     </header>
-  )
+  );
 };
 
 export default Topbar;
